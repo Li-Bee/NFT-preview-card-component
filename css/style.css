@@ -98,7 +98,50 @@ body {
   position: relative;
 }
 
-.overlay {
+/* --- USING PSEUDO ELEMENT FOR BLUE COLOR AND ICON OVERLAY --- */
+
+.preview::before {
+  content: "";
+  /* display: block; */
+  height: 100%;
+  width: 100%;
+  background-color: #00fff7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-image: url(../img/icon-view.svg);
+  background-repeat: no-repeat;
+  background-position: center; */
+  opacity: 0;
+  transition: ease 0.3s;
+}
+
+/* to make the eye-icon have different transparency pull out of before pseudo */
+.preview::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../img/icon-view.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transition: ease 0.3s;
+}
+
+.preview:hover::before {
+  opacity: 0.503;
+}
+
+.preview:hover::after {
+  opacity: 1;
+}
+
+/* --- ALTERNATIVE TO BLUE COLOR AND ICON OVERLAY --- */
+
+/* .overlay {
   background-color: #00fff7;
 }
 
@@ -124,7 +167,7 @@ body {
 
 .preview:hover .overlay-icon {
   opacity: 1;
-}
+} */
 
 .card-heading,
 .card-heading:link,
